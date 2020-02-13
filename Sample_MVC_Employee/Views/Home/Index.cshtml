@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Employee Details in view data</h2>
+<table>
+    <tr>
+        <td>Employee Id</td>
+        <td> </td>
+        <td>Employee Name</td>
+        <td> .</td>
+        <td>Employee Department</td>
+    </tr>
+    @foreach (EmployeeEntity.Employee item in (List<EmployeeEntity.Employee>)ViewData["Employees"])
+    {
+        <tr>
+            <td>
+                @item.employeeId
+            </td>
+            <td></td>
+            <td>
+                @item.employeeName
+            </td>
+            <td></td>
+            <td>
+                @item.employeeDepartment
+            </td>
+        </tr>
+    }
+</table>
+<h2>Employee Details in view Bag</h2>
+<table>
+    <tr>
+        <td>Employee Id</td>
+        <td> </td>
+        <td>Employee Name</td>
+        <td> </td>
+        <td>Employee Department</td>
+    </tr>
+    @foreach (EmployeeEntity.Employee item in ViewBag.Employees)
+    {
+        <tr>
+            <td>
+                @item.employeeId
+            </td>
+            <td></td>
+            <td>
+                @item.employeeName
+            </td>
+            <td></td>
+            <td>
+                @item.employeeDepartment
+            </td>
+        </tr>
+    }
+</table>
+<h2>Employee Details in Temp Data</h2>
+<table>
+    <tr>
+        <td>Employee Id</td>
+        <td> </td>
+        <td>Employee Name</td>
+        <td> </td>
+        <td>Employee Department</td>
+    </tr>
+    @foreach (EmployeeEntity.Employee item in (List<EmployeeEntity.Employee>)TempData["Employees"])
+    {
+        <tr>
+            <td>
+                @item.employeeId
+            </td>
+            <td></td>
+            <td>
+                @item.employeeName
+            </td>
+            <td></td>
+            <td>
+                @item.employeeDepartment
+            </td>
+        </tr>
+    }
+</table>
+

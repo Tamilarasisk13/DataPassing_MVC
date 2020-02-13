@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "TempDataPassing";
+}
+
+ViewData: @ViewData["Employees"] <br />
+ViewBig: @ViewBag.Employees<br />
+<h2>TempData to Another View</h2>
+<table>
+    <tr>
+        <td>Employee Id</td>
+        <td> </td>
+        <td>Employee Name</td>
+        <td> </td>
+        <td>Employee Department</td>
+    </tr>
+    @foreach (EmployeeEntity.Employee item in (List<EmployeeEntity.Employee>)TempData["Employees"])
+    {
+        <tr>
+            <td>
+                @item.employeeId
+            </td>
+            <td></td>
+            <td>
+                @item.employeeName
+            </td>
+            <td></td>
+            <td>
+                @item.employeeDepartment
+            </td>
+        </tr>
+    }
+</table>
+

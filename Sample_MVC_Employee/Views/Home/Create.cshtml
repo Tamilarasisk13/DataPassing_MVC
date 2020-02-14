@@ -1,0 +1,47 @@
+﻿@model EmployeeEntity.Employee
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Insert new Employee</h2><br />
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <table cellpadding="8">
+        <tr>
+            <td>
+                @Html.Label("employeeId")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.employeeId)
+            </td>
+         
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.employeeName)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.employeeName)
+            </td>
+          
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.employeeDepartment)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.employeeDepartment)
+            </td>
+          
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "Index");
+            </td>
+            <td>
+                <input type="submit" id="Submit"/>
+            </td>
+        </tr>
+    </table>
+}

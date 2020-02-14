@@ -1,10 +1,6 @@
 ﻿
 using EmployeeEntity;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace EmployeeRepositary
 {
     public class Repositary
@@ -23,6 +19,24 @@ namespace EmployeeRepositary
         public void Add(Employee employee)
         {
             employees.Add(employee);
+        }
+        
+        public void Delete(int employeeId)
+        {
+            Employee employee = GetEmployeeById(employeeId);
+            if (employee != null)
+                employees.Remove(employee);
+        }
+  
+        public void Update(Employee employee)
+        {
+            Employee employeeObject=employees.Find(id => id.employeeId == employee.employeeId);
+            employeeObject.employeeName = employee.employeeName;
+            employeeObject.employeeDepartment = employee.employeeDepartment;
+        }
+        public Employee GetEmployeeById(int userEmployeeId)
+        {
+            return employees.Find(id => id.employeeId == userEmployeeId);
         }
     }
 }

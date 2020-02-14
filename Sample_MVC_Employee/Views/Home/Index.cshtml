@@ -1,33 +1,32 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<h2>Employee Details in view data</h2>
-<table>
+<h2>Employee Details</h2>
+@Html.ActionLink("Insert Employee","Create")<br />
+<table border="1">
     <tr>
-        <td>Employee Id</td>
-        <td> </td>
-        <td>Employee Name</td>
-        <td> .</td>
-        <td>Employee Department</td>
+        <th>Employee Name</th>
+        <th>Employee Department</th>
+        <th>Action</th>
     </tr>
     @foreach (EmployeeEntity.Employee item in (List<EmployeeEntity.Employee>)ViewData["Employees"])
     {
-        <tr>
-            <td>
-                @item.employeeId
-            </td>
-            <td></td>
+        <tr>        
             <td>
                 @item.employeeName
             </td>
-            <td></td>
+           
             <td>
                 @item.employeeDepartment
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.employeeId})
+                @Html.ActionLink("Delete", "Delete", new { id = item.employeeId })
             </td>
         </tr>
     }
 </table>
-<h2>Employee Details in view Bag</h2>
+@*<h2>Employee Details in view Bag</h2>
 <table>
     <tr>
         <td>Employee Id</td>
@@ -78,5 +77,5 @@
             </td>
         </tr>
     }
-</table>
+</table>*@
 

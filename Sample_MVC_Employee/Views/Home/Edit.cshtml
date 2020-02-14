@@ -1,0 +1,38 @@
+﻿@model EmployeeEntity.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Employee</h2>
+@using (Html.BeginForm("Update", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(Model =>Model.employeeId)
+    <table cellpadding="8">
+        <tr>
+            <td>
+                Employee Name
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.employeeName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Employee Department
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.employeeDepartment)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "Index")
+            </td>
+            <td>
+                <input type="submit" id="Submit" />
+            </td>
+        </tr>
+    </table>
+}
+

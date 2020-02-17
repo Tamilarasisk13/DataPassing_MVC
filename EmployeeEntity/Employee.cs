@@ -8,8 +8,7 @@ namespace EmployeeEntity
 {
     public class Employee
     {
-        public int employeeId { get; set; }
-        
+        public int employeeId { get; set; }       
         public string employeeName { get; set; }
         public string employeeDepartment { get; set; }
     }

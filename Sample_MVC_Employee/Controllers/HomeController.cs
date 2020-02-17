@@ -34,17 +34,39 @@ namespace Sample_MVC_Employee.Controllers
         {
             return View();
         }
+        //[HttpPost]
+        //public ActionResult Create(Employee employee)
+        //{ 
+        //    repositary.Add(employee);
+        //    TempData["Message"] = "Employee is added successfully";
+        //    return RedirectToAction("Index");
+        //}
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        [ActionName("Create")]
+        public ActionResult CreateUpdateView()
         {
-            if (ModelState.IsValid)
-            {
-                repositary.Add(employee);
-                TempData["Message"] = "Employee is added successfully";
-                return RedirectToAction("Index");
-            }
-            return View(employee);
+            Employee employee = new Employee();
+            UpdateModel(employee);
+            repositary.Add(employee);
+            TempData["Message"] = "Employee is added successfully";
+            return RedirectToAction("Index");
         }
+
+
+        //[HttpPost]
+        // [ActionName("Create")]
+        //public ActionResult CreateTryUpdateView()
+        //{        
+        //    if (ModelState.IsValid)
+        //    {
+        //        Employee employee = new Employee();
+        //        TryUpdateModel(employee);
+        //        repositary.Add(employee);
+        //        TempData["Message"] = "Employee is added successfully";
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
         public ActionResult Delete(int id)
         {
             repositary.Delete(id);
